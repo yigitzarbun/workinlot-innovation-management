@@ -1,0 +1,60 @@
+import i18n from "../common/i18n/i18n";
+
+export const step1 = [
+  {
+    id: 1,
+    question_no: 1,
+    question: i18n.t("s1q1"),
+    options: ["Ticaret", "Hizmet", "Üretim", "Knowledge"],
+    short_name: "sector",
+    question_type: "multiple",
+  },
+  {
+    id: 2,
+    question_no: 2,
+    question: i18n.t("s1q2"),
+    options: [
+      "Orta Ölçekli (50-100 çalışan)",
+      "Büyük Ölçekli (100-500 çalışan)",
+      "Holding veya Grup Şirketi",
+    ],
+    short_name: "scale",
+    question_type: "single",
+  },
+  {
+    id: 3,
+    question_no: 3,
+    question: i18n.t("s1q3"),
+    options: [
+      "Ar-Ge",
+      "İnovasyon",
+      "Ürün Yönetimi",
+      "Pazarlama ve Satış",
+      "Strateji ve Planlama",
+      "Operasyon ve Üretim",
+      "İnsan Kaynakları",
+      "İş Geliştirme",
+      "Diğer",
+    ],
+    short_name: "unit",
+    question_type: "multiple",
+  },
+  {
+    id: 4,
+    question_no: 4,
+    question: i18n.t("s1q4"),
+    options: [
+      "Kurum İçi Araştırma ve Geliştirme",
+      "Çalışan İnovasyon Programları",
+      "Çapraz Fonksiyonel İşbirliği",
+      "Süreç İyileştirme Girişimleri",
+      "İşbirlikçi Ortaklıklar",
+      "Müşteri ile Ortak Yaratım",
+      "Açık Kaynak İnovasyonu",
+      "İnovasyon Yarışmaları ve Hackhatonlar",
+      "Girişim Sermayesi Yatırımları ve Satın Alımlar",
+    ],
+    short_name: "priorities",
+    question_type: "multiple",
+  },
+];

@@ -8,5 +8,9 @@
   "headerSignupButtonText": "Kayıt",
   "footerLinkedinAltText": "Linkedin",
   "footerYoutubeAltText": "Youtube",
-  "footerTwitterAltText": "Twitter"
+  "footerTwitterAltText": "Twitter",
+  "s1q1": "Şirketiniz hangi sektör veya sektörlerde faaliyet gösteriyor?",
+  "s1q2": "Şirketinizin ölçeğini en iyi nasıl tanımlarsınız?",
+  "s1q3": "Siz hangi birimde görevlisiniz?",
+  "s1q4": "Aşağıdaki inovasyon başlıklarından hangileri sizin için önceliklidir?"
 }

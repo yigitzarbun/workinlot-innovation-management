@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import styles from "./styles.module.scss";
+import { step1 } from "../../../data/Step1";
 
 type FormData = {
   company_sectors: string[];
@@ -13,57 +15,102 @@ const Step1Form: React.FC = () => {
   const onSubmit = (data: FormData) => {
     console.log(data);
   };
-
+  const [questionIndex, setQuestionIndex] = useState(0);
+  const handleNextQuestion = () => {
+    setQuestionIndex((questionIndex + 1) % step1.length);
+  };
+  const handlePrevQuestion = () => {
+    setQuestionIndex((questionIndex + step1.length - 1) % step1.length);
+  };
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className={styles["form-question-container"]}>
-          <label
-            htmlFor="company_sectors"
-            className={styles["form-question-title"]}
-          >
-            Şirketiniz hangi sektör veya sektörlerde faaliyet gösteriyor?
-          </label>
-          <Controller
-            control={control}
-            name="company_sectors"
-            render={({ field }) => {
-              const selectedValues = field.value || [];
-              return (
-                <div className={styles["options-container"]}>
-                  <label
-                    className={
-                      selectedValues.includes("technology")
-                        ? styles["check-box-checked"]
-                        : styles["check-box-transparent"]
-                    }
+        {step1
+          .filter((q) => step1.indexOf(q) === questionIndex)
+          .map((q) => (
+            <div className={styles["form-question-container"]} key={q.id}>
+              <label
+                htmlFor={q.short_name}
+                className={styles["form-question-title"]}
+              >
+                {q.question}
+              </label>
+              <Controller
+                control={control}
+                name={q.short_name as keyof FormData}
+                render={({ field }) => {
+                  const selectedValues = field.value as string[]; // Explicitly define the type
+                  const selectedArray = Array.isArray(selectedValues)
+                    ? selectedValues
+                    : [selectedValues];
+                  return (
+                    <div className={styles["options-container"]}>
+                      {q.options.map((o) => (
+                        <label
+                          key={o}
+                          className={
+                            selectedArray.includes(o)
+                              ? styles["check-box-checked"]
+                              : styles["check-box-transparent"]
+                          }
+                        >
+                          <input
+                            type={
+                              q.question_type === "multiple"
+                                ? "checkbox"
+                                : "radio"
+                            }
+                            value={o}
+                            checked={selectedArray.includes(o)}
+                            onChange={(e) => {
+                              if (q.question_type === "single") {
+                                field.onChange(e.target.value);
+                              } else {
+                                const isChecked = e.target.checked;
+                                if (isChecked) {
+                                  field.onChange([...selectedArray, o]);
+                                } else {
+                                  field.onChange(
+                                    selectedArray.filter(
+                                      (value: string) => value !== o
+                                    )
+                                  );
+                                }
+                              }
+                            }}
+                          />
+                          <span>{o}</span>
+                        </label>
+                      ))}
+                    </div>
+                  );
+                }}
+              />
+              <div className={styles["buttons-container"]}>
+                {questionIndex !== 0 && (
+                  <button
+                    onClick={handlePrevQuestion}
+                    className={styles["prev-button"]}
                   >
-                    <input
-                      type="checkbox"
-                      value="technology"
-                      checked={selectedValues.includes("technology")}
-                      onChange={(e) => {
-                        if (e.target.checked) {
-                          field.onChange([...selectedValues, e.target.value]);
-                        } else {
-                          field.onChange(
-                            selectedValues.filter(
-                              (value) => value !== e.target.value
-                            )
-                          );
-                        }
-                      }}
-                    />
-                    <span>Technology</span>
-                  </label>
-                </div>
-              );
-            }}
-          />
-          <button>Devam</button>
-        </div>
+                    Geri
+                  </button>
+                )}
 
-        <button type="submit">Submit</button>
+                {questionIndex < step1.length - 1 ? (
+                  <button
+                    onClick={handleNextQuestion}
+                    className={styles["next-button"]}
+                  >
+                    İleri
+                  </button>
+                ) : (
+                  <button type="submit" className={styles["submit-button"]}>
+                    Tamamla
+                  </button>
+                )}
+              </div>
+            </div>
+          ))}
       </form>
     </div>
   );

@@ -8,5 +8,9 @@
   "headerSignupButtonText": "Signup",
   "footerLinkedinAltText": "Linkedin",
   "footerYoutubeAltText": "Youtube",
-  "footerTwitterAltText": "Twitter"
+  "footerTwitterAltText": "Twitter",
+  "s1q1": "What sector(s) does your company operate in?",
+  "s1q2": "How would you best describe the scale of your company?",
+  "s1q3": "Which department(s) are you assigned to?",
+  "s1q4": "Which of the following innovation titles are prioritized for you?"
 }
