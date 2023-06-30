@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import styles from "./styles.module.scss";
 import { step1 } from "../../../data/Step1";
-
+import { useNavigate } from "react-router-dom";
+import paths from "../../../routing/Paths";
 type FormData = {
   company_sectors: string[];
   company_scale: string;
@@ -12,8 +13,11 @@ type FormData = {
 
 const Step1Form: React.FC = () => {
   const { handleSubmit, control } = useForm<FormData>();
+  const navigate = useNavigate();
+
   const onSubmit = (data: FormData) => {
     console.log(data);
+    navigate(paths.STEP_1_OUTCOME);
   };
   const [questionIndex, setQuestionIndex] = useState(0);
   const handleNextQuestion = () => {

@@ -12,5 +12,14 @@
   "s1q1": "What sector(s) does your company operate in?",
   "s1q2": "How would you best describe the scale of your company?",
   "s1q3": "Which department(s) are you assigned to?",
-  "s1q4": "Which of the following innovation titles are prioritized for you?"
+  "s1q4": "Which of the following innovation titles are prioritized for you?",
+  "step1OutcomeText": "If we understood you correctly, a typical company in your industry engages in activities related to the following goals:",
+  "step1CTAText": "To see a customized roadmap, proceed to the next stage and continue with new questions.",
+  "step1CTAButtonText": "Proceed",
+  "step1ExitButtonText": "Exit",
+  "step1OutcomeImageAltText": "End of Step 1",
+  "step1OutroTitle": "Thank you very much for taking the time for us.",
+  "step1OutroText1": "You can reserve our time for a free consultation on innovation and entrepreneurship from Workinlot by using the Calendly link below.",
+  "step1OutroText2": "You can also subscribe to our monthly newsletter by clicking on the link below.",
+  "step1OutroImageAltText": "Step 1 Outro"
 }

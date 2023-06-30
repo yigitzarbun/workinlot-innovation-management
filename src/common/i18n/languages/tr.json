@@ -12,5 +12,14 @@
   "s1q1": "Şirketiniz hangi sektör veya sektörlerde faaliyet gösteriyor?",
   "s1q2": "Şirketinizin ölçeğini en iyi nasıl tanımlarsınız?",
   "s1q3": "Siz hangi birimde görevlisiniz?",
-  "s1q4": "Aşağıdaki inovasyon başlıklarından hangileri sizin için önceliklidir?"
+  "s1q4": "Aşağıdaki inovasyon başlıklarından hangileri sizin için önceliklidir?",
+  "step1OutcomeText": "Sizi doğru anlayabildiysek, sektörünüzdeki tipik bir firma aşağıdaki hedeflere yönelik faaliyetler gösteriyor:",
+  "step1CTAText": "Size özgün taslak bir yol haritası görmek için bir sonraki aşamaya geçip, yeni sorular ile devam edebilirsiniz.",
+  "step1CTAButtonText": "Devam et",
+  "step1ExitButtonText": "Sonlandır",
+  "step1OutcomeImageAltText": "Step 1 Son",
+  "step1OutroTitle": "Bize zaman ayırdığınız için çok teşekkürler.",
+  "step1OutroText1": "İnovasyon ve girişimcilik konusunda Workinlot'dan ücretsiz konsültasyon almak için aşağıdaki Calendly linkinden zamanımızı rezerve edebilirsiniz.",
+  "step1OutroText2": "Onun altından da aylık frekansta gönderdiğimiz bültenimize üye olabilirsiniz.",
+  "step1OutroImageAltText": "Step 1 Çıkış"
 }
