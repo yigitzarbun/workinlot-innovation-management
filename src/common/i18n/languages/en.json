@@ -1,3 +1,12 @@
 {
-  "logoAltText": "workinlot-logo"
+  "logoAltText": "workinlot-logo",
+  "step1IntroImageAltText": "Step-1 Illustration",
+  "step1IntroTitle": "Innovation Management Assistant",
+  "step1IntroText": "We want to assist you in achieving your innovation goals. Therefore, first and foremost, we would like to support you in positioning yourself and accomplishing your objectives. Through the following few questions, we aim to gain a better understanding of your unique situation and provide you with an innovation framework.",
+  "step1IntroButtonText": "Let's begin",
+  "headerLoginButtonText": "Login",
+  "headerSignupButtonText": "Signup",
+  "footerLinkedinAltText": "Linkedin",
+  "footerYoutubeAltText": "Youtube",
+  "footerTwitterAltText": "Twitter"
 }

@@ -1,0 +1,59 @@
+@import "/src/common/styles/colors.scss";
+
+.form-question-container {
+  height: 70vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 5vh;
+}
+
+.form-question-title {
+  font-size: 1.5rem;
+}
+
+.options-container {
+  display: flex;
+  column-gap: 20px;
+}
+
+.check-box-transparent {
+  padding: 10px;
+  border: 1px solid $wnl-orange;
+  background-color: rgba(255, 165, 0, 0.2);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+  box-sizing: border-box;
+}
+
+.check-box-transparent:hover {
+  background-color: $wnl-orange;
+}
+
+.check-box-checked {
+  padding: 10px;
+  border: 1px solid $wnl-orange;
+  background-color: $wnl-orange;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+  box-sizing: border-box;
+}
+
+.check-box-transparent label {
+  display: flex;
+  align-items: center;
+  color: white;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.check-box-transparent input {
+  margin-right: 5px;
+  background-color: #ffffff;
+}

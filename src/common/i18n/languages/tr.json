@@ -1,3 +1,12 @@
 {
-  "logoAltText": "workinlot-logo"
+  "logoAltText": "workinlot-logo",
+  "step1IntroImageAltText": "Step-1 Illustration",
+  "step1IntroTitle": "İnovasyon Yönetim Asistanı",
+  "step1IntroText": "İnovasyon hedeflerinize ulaşmanızda size yardımcı olmak istiyoruz. Bu yüzden herşeyden önce sizin kendinizi konumlandırmanıza ve gerçekleştirmenize destek olmak isteriz. Birkaç soru aracılığıyla özgün durumunuzu biraz daha iyi anlamak ve size bir inovasyon çerçevesi sunmayı hedefliyoruz.",
+  "step1IntroButtonText": "Başlayalım",
+  "headerLoginButtonText": "Giriş",
+  "headerSignupButtonText": "Kayıt",
+  "footerLinkedinAltText": "Linkedin",
+  "footerYoutubeAltText": "Youtube",
+  "footerTwitterAltText": "Twitter"
 }

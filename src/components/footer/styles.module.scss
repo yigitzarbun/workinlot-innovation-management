@@ -1,0 +1,24 @@
+@import "/src/common/styles/common.scss";
+@import "/src/common/styles/colors.scss";
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $wnl-orange;
+  padding: 15px 20px;
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+.logo {
+  width: 150px;
+}
+
+.footer-social-container {
+  display: flex;
+  column-gap: 10px;
+}
+.social-icon {
+  width: 30px;
+}

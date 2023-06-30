@@ -1,8 +1,10 @@
+@import "/src/common/styles/colors.scss";
+
 .header-container {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
   align-items: center;
+  padding: 25px 30px;
 }
 
 .logo {
@@ -11,38 +13,14 @@
 
 .login-signup-container {
   display: flex;
-  column-gap: 10px;
-}
-.login-button {
-  padding: 10px;
-  cursor: pointer;
-  font-size: 0.9rem;
+  column-gap: 20px;
   font-weight: bold;
-  background-color: inherit;
-  border: 1px solid inherit;
-  border-radius: 5px;
-  color: white;
-  text-decoration: none;
 }
 
 .login-button:hover {
-  background-color: #ef6637;
-  border-color: #ef6637;
-}
-
-.signup-button {
-  padding: 10px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  font-weight: bold;
-  background-color: inherit;
-  border: 1px solid inherit;
-  border-radius: 5px;
-  color: white;
-  text-decoration: none;
+  color: $wnl-orange;
 }
 
 .signup-button:hover {
-  background-color: #ef6637;
-  border-color: #ef6637;
+  color: $wnl-orange;
 }
