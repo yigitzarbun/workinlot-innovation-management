@@ -15,12 +15,7 @@ type FormData = {
 
 const Step1Form: React.FC = () => {
   const { handleSubmit, control, formState } = useForm<FormData>({
-    defaultValues: {
-      company_sectors: [],
-      company_scale: "",
-      company_units: [],
-      innovation_titles: [],
-    },
+    mode: "onChange",
   });
   const navigate = useNavigate();
 
@@ -57,70 +52,72 @@ const Step1Form: React.FC = () => {
               >
                 {q.question}
               </label>
-              {formState.errors[
-                q.short_name as keyof FieldErrors<FormData>
-              ] && (
-                <div className={styles["error-container"]}>
-                  <p>
-                    {
-                      formState.errors[
-                        q.short_name as keyof FieldErrors<FormData>
-                      ]?.message
-                    }
-                  </p>
-                </div>
-              )}
-              <Controller
-                control={control}
-                name={q.short_name as keyof FormData}
-                rules={{ required: i18n.t("formFieldMissingMessage") }}
-                render={({ field }) => (
-                  <div className={styles["options-container"]}>
-                    {q.options.map((o) => (
-                      <label
-                        key={o}
-                        className={
-                          field.value?.includes(o)
-                            ? styles["check-box-checked"]
-                            : styles["check-box-transparent"]
-                        }
-                      >
-                        <input
-                          type={
-                            q.question_type === "multiple"
-                              ? "checkbox"
-                              : "radio"
+              <div className={styles["options-container"]}>
+                <Controller
+                  control={control}
+                  name={q.short_name as keyof FormData}
+                  rules={{ required: i18n.t("formFieldMissingMessage") }}
+                  render={({ field }) => (
+                    <>
+                      {q.options.map((o) => (
+                        <label
+                          key={o}
+                          className={
+                            field.value?.includes(o)
+                              ? styles["check-box-checked"]
+                              : styles["check-box-transparent"]
                           }
-                          value={o}
-                          checked={field.value?.includes(o)}
-                          onChange={(e) => {
-                            if (q.question_type === "single") {
-                              field.onChange(e.target.value);
-                            } else {
-                              const isChecked = e.target.checked;
-                              if (isChecked) {
-                                field.onChange([
-                                  ...(field.value || []),
-                                  e.target.value,
-                                ]);
-                              } else {
-                                field.onChange(
-                                  (field.value || []).filter(
-                                    (value: string) => value !== e.target.value
-                                  )
-                                );
-                              }
+                        >
+                          <input
+                            type={
+                              q.question_type === "multiple"
+                                ? "checkbox"
+                                : "radio"
                             }
-                          }}
-                        />
-
-                        <span>{o}</span>
-                      </label>
-                    ))}
+                            value={o}
+                            checked={field.value?.includes(o)}
+                            onChange={(e) => {
+                              if (q.question_type === "single") {
+                                field.onChange(e.target.value);
+                              } else {
+                                const isChecked = e.target.checked;
+                                if (isChecked) {
+                                  field.onChange([
+                                    ...(field.value || []),
+                                    e.target.value,
+                                  ]);
+                                } else {
+                                  field.onChange(
+                                    (field.value || []).filter(
+                                      (value: string) =>
+                                        value !== e.target.value
+                                    )
+                                  );
+                                }
+                              }
+                            }}
+                          />
+                          <span>{o}</span>
+                        </label>
+                      ))}
+                    </>
+                  )}
+                />
+              </div>
+              {formState.errors &&
+                formState.errors[
+                  q.short_name as keyof FieldErrors<FormData>
+                ] && (
+                  <div className={styles["error-container"]}>
+                    <p>
+                      {
+                        formState.errors[
+                          q.short_name as keyof FieldErrors<FormData>
+                        ]?.message
+                      }
+                    </p>
                   </div>
                 )}
-              />
-
               <div className={styles["buttons-container"]}>
                 {questionIndex !== 0 && (
                   <button
@@ -130,7 +127,6 @@ const Step1Form: React.FC = () => {
                     Geri
                   </button>
                 )}
-
                 {questionIndex < step1.length - 1 ? (
                   <button
                     type="button"

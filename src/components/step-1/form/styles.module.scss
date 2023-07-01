@@ -80,15 +80,6 @@
 }
 
 .next-button {
-  border: 1px solid rgb(110, 98, 98);
-  background-color: rgb(110, 98, 98);
-  padding: 10px;
-  font-weight: bold;
-  width: 100px;
-  margin-left: auto;
-}
-
-.next-button-validated {
   border: 1px solid $wnl-orange;
   background-color: $wnl-orange;
   padding: 10px;
@@ -97,14 +88,6 @@
   margin-left: auto;
 }
 
-.next-button-validated:hover {
-  border: 1px solid black;
-  background-color: black;
-  padding: 10px;
-  font-weight: bold;
-  width: 100px;
-  margin-left: auto;
-}
 .submit-button {
   border: 1px solid $wnl-orange;
   background-color: $wnl-orange;
