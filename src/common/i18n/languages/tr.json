@@ -26,5 +26,11 @@
   "step1OutroImageAltText": "Step 1 Çıkış",
   "calendlyModalCloseIconAltText": "Kapat",
   "openCalendlyModalButtonText": "Calendly",
-  "formFieldMissingMessage": "Lütfen seçim yapın."
+  "formFieldMissingMessage": "Lütfen seçim yapın.",
+  "step2IntroImageAltText": "Step-2 Illustration",
+  "step2IntroText": "Taslak bir yol haritası geliştirebilmemiz için, inovasyon hedeflerinizi, bugüne kadar yaptıklarınızı ve gelecek planlarınızı biraz daha iyi tanımamız gerekiyor. Aşağıdaki sorular direk bunlar ile ilgili ve sonucunda size bir yol haritası önerisi teslim edeceğiz.",
+  "step2IntroButtonText": "Başlayalım",
+  "s2q1": "Şirketiniz için inovasyon hedeflerinizi sırasına göre nasıl yerleştirirdiniz?",
+  "s2q2": "Aşağıdaki cümleler sizin şirketiniz için ne kadar doğru?",
+  "s2q3": "6 ay içerisinde kurumsal inovayonda başarıyı nasıl tanımlarsınız?"
 }

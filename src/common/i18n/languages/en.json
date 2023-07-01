@@ -26,5 +26,11 @@
   "step1OutroImageAltText": "Step 1 Outro",
   "calendlyModalCloseIconAltText": "Close",
   "openCalendlyModalButtonText": "Calendly",
-  "formFieldMissingMessage": "Please select an option."
+  "formFieldMissingMessage": "Please select an option.",
+  "step2IntroImageAltText": "Step-2 Illustration",
+  "step2IntroText": "In order for us to develop a draft roadmap, we need to have a better understanding of your innovation goals, what you have done so far, and your future plans. The following questions are directly related to these aspects, and based on the answers, we will provide you with a roadmap proposal.",
+  "step2IntroButtonText": "Let's begin",
+  "s2q1": "How would you prioritize your innovation goals for your company?",
+  "s2q2": "How accurate are the following sentences for your company?",
+  "s2q3": "How would you define success in corporate innovation within a 6-month timeframe?"
 }

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useForm, Controller, FieldErrors } from "react-hook-form";
 import styles from "./styles.module.scss";
-import { step1 } from "../../../data/Step1";
-import { useNavigate } from "react-router-dom";
+import { step1 } from "../../../data/step1/Step1";
+import { Link, useNavigate } from "react-router-dom";
 import paths from "../../../routing/Paths";
 import i18n from "../../../common/i18n/i18n";
 
@@ -41,6 +41,24 @@ const Step1Form: React.FC = () => {
 
   return (
     <div>
+      <div className={styles["progress-bar-container"]}>
+        <div className={styles["filled-bar"]}></div>
+        <div
+          className={
+            questionIndex >= 1 ? styles["filled-bar"] : styles["empty-bar"]
+          }
+        ></div>
+        <div
+          className={
+            questionIndex >= 2 ? styles["filled-bar"] : styles["empty-bar"]
+          }
+        ></div>
+        <div
+          className={
+            questionIndex === 3 ? styles["filled-bar"] : styles["empty-bar"]
+          }
+        ></div>
+      </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         {step1
           .filter((q) => step1.indexOf(q) === questionIndex)
@@ -52,6 +70,7 @@ const Step1Form: React.FC = () => {
               >
                 {q.question}
               </label>
+
               <div className={styles["options-container"]}>
                 <Controller
                   control={control}
@@ -104,21 +123,8 @@ const Step1Form: React.FC = () => {
                   )}
                 />
               </div>
-              {formState.errors &&
-                formState.errors[
-                  q.short_name as keyof FieldErrors<FormData>
-                ] && (
-                  <div className={styles["error-container"]}>
-                    <p>
-                      {
-                        formState.errors[
-                          q.short_name as keyof FieldErrors<FormData>
-                        ]?.message
-                      }
-                    </p>
-                  </div>
-                )}
               <div className={styles["buttons-container"]}>
+                {questionIndex === 0 && <Link to={paths.HOME}>Anasayfa</Link>}
                 {questionIndex !== 0 && (
                   <button
                     onClick={handlePrevQuestion}
@@ -127,6 +133,20 @@ const Step1Form: React.FC = () => {
                     Geri
                   </button>
                 )}
+                {formState.errors &&
+                  formState.errors[
+                    q.short_name as keyof FieldErrors<FormData>
+                  ] && (
+                    <div className={styles["error-container"]}>
+                      <p>
+                        {
+                          formState.errors[
+                            q.short_name as keyof FieldErrors<FormData>
+                          ]?.message
+                        }
+                      </p>
+                    </div>
+                  )}
                 {questionIndex < step1.length - 1 ? (
                   <button
                     type="button"

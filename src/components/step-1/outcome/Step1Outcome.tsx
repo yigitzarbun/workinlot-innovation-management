@@ -34,9 +34,11 @@ const Step1Outcome = () => {
               {i18n.t("step1ExitButtonText")}{" "}
             </button>
           </Link>
-          <button className="intro-button">
-            {i18n.t("step1CTAButtonText")}
-          </button>
+          <Link to={paths.STEP_2_INTRO}>
+            <button className="intro-button">
+              {i18n.t("step1CTAButtonText")}
+            </button>
+          </Link>
         </div>
       </div>
     </div>
