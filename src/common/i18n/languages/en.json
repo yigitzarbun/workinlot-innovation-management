@@ -6,6 +6,8 @@
   "step1IntroButtonText": "Let's begin",
   "headerLoginButtonText": "Login",
   "headerSignupButtonText": "Signup",
+  "footerNewsletterInputPlaceholder": "Your email address",
+  "footerNewsletterButtonText": "Join",
   "footerLinkedinAltText": "Linkedin",
   "footerYoutubeAltText": "Youtube",
   "footerTwitterAltText": "Twitter",
@@ -23,5 +25,6 @@
   "step1OutroText2": "You can also subscribe to our monthly newsletter by clicking on the link below.",
   "step1OutroImageAltText": "Step 1 Outro",
   "calendlyModalCloseIconAltText": "Close",
-  "openCalendlyModalButtonText": "Calendly"
+  "openCalendlyModalButtonText": "Calendly",
+  "formFieldMissingMessage": "Please select an option."
 }

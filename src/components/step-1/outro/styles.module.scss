@@ -11,6 +11,6 @@
 
 .step1-outro-text-and-buttons-container {
   width: 40%;
-}
-.step1-outro-text-container {
+  display: flex;
+  flex-direction: column;
 }

@@ -15,6 +15,25 @@
   width: 150px;
 }
 
+.newsletter-container {
+  display: flex;
+  column-gap: 15px;
+  align-items: center;
+}
+
+.newsletter-input {
+  background-color: white;
+  padding: 10px;
+  color: black;
+  width: 250px;
+}
+
+.newsletter-button {
+  background-color: black;
+  color: white;
+  padding: 10px;
+}
+
 .footer-social-container {
   display: flex;
   column-gap: 10px;

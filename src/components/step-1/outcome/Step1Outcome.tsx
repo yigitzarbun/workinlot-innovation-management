@@ -26,11 +26,6 @@ const Step1Outcome = () => {
               Ürün İnovasyonu
             </p>
           </div>
-          <div className={styles["step-1-outcome-results-text-container"]}>
-            <p className={styles["step-1-outcome-results-textbox"]}>
-              Kurumsal İnovasyon
-            </p>
-          </div>
         </div>
         <p className="intro-text">{i18n.t("step1CTAText")}</p>
         <div className={styles["step-1-buttons-container"]}>

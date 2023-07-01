@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { useForm, Controller } from "react-hook-form";
+import { useForm, Controller, FieldErrors } from "react-hook-form";
 import styles from "./styles.module.scss";
 import { step1 } from "../../../data/Step1";
 import { useNavigate } from "react-router-dom";
 import paths from "../../../routing/Paths";
+import i18n from "../../../common/i18n/i18n";
+
 type FormData = {
   company_sectors: string[];
   company_scale: string;
@@ -12,20 +14,36 @@ type FormData = {
 };
 
 const Step1Form: React.FC = () => {
-  const { handleSubmit, control } = useForm<FormData>();
+  const { handleSubmit, control, formState } = useForm<FormData>({
+    defaultValues: {
+      company_sectors: [],
+      company_scale: "",
+      company_units: [],
+      innovation_titles: [],
+    },
+  });
   const navigate = useNavigate();
 
   const onSubmit = (data: FormData) => {
     console.log(data);
     navigate(paths.STEP_1_OUTCOME);
   };
+
   const [questionIndex, setQuestionIndex] = useState(0);
-  const handleNextQuestion = () => {
-    setQuestionIndex((questionIndex + 1) % step1.length);
+
+  const handleNextQuestion = async (): Promise<void> => {
+    const isValid = await handleSubmit(() => {
+      setQuestionIndex((questionIndex + 1) % step1.length);
+    })();
+    if (isValid) {
+      setQuestionIndex((questionIndex + 1) % step1.length);
+    }
   };
+
   const handlePrevQuestion = () => {
     setQuestionIndex((questionIndex + step1.length - 1) % step1.length);
   };
+
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -39,57 +57,70 @@ const Step1Form: React.FC = () => {
               >
                 {q.question}
               </label>
+              {formState.errors[
+                q.short_name as keyof FieldErrors<FormData>
+              ] && (
+                <div className={styles["error-container"]}>
+                  <p>
+                    {
+                      formState.errors[
+                        q.short_name as keyof FieldErrors<FormData>
+                      ]?.message
+                    }
+                  </p>
+                </div>
+              )}
               <Controller
                 control={control}
                 name={q.short_name as keyof FormData}
-                render={({ field }) => {
-                  const selectedValues = field.value as string[]; // Explicitly define the type
-                  const selectedArray = Array.isArray(selectedValues)
-                    ? selectedValues
-                    : [selectedValues];
-                  return (
-                    <div className={styles["options-container"]}>
-                      {q.options.map((o) => (
-                        <label
-                          key={o}
-                          className={
-                            selectedArray.includes(o)
-                              ? styles["check-box-checked"]
-                              : styles["check-box-transparent"]
+                rules={{ required: i18n.t("formFieldMissingMessage") }}
+                render={({ field }) => (
+                  <div className={styles["options-container"]}>
+                    {q.options.map((o) => (
+                      <label
+                        key={o}
+                        className={
+                          field.value?.includes(o)
+                            ? styles["check-box-checked"]
+                            : styles["check-box-transparent"]
+                        }
+                      >
+                        <input
+                          type={
+                            q.question_type === "multiple"
+                              ? "checkbox"
+                              : "radio"
                           }
-                        >
-                          <input
-                            type={
-                              q.question_type === "multiple"
-                                ? "checkbox"
-                                : "radio"
-                            }
-                            value={o}
-                            checked={selectedArray.includes(o)}
-                            onChange={(e) => {
-                              if (q.question_type === "single") {
-                                field.onChange(e.target.value);
+                          value={o}
+                          checked={field.value?.includes(o)}
+                          onChange={(e) => {
+                            if (q.question_type === "single") {
+                              field.onChange(e.target.value);
+                            } else {
+                              const isChecked = e.target.checked;
+                              if (isChecked) {
+                                field.onChange([
+                                  ...(field.value || []),
+                                  e.target.value,
+                                ]);
                               } else {
-                                const isChecked = e.target.checked;
-                                if (isChecked) {
-                                  field.onChange([...selectedArray, o]);
-                                } else {
-                                  field.onChange(
-                                    selectedArray.filter(
-                                      (value: string) => value !== o
-                                    )
-                                  );
-                                }
+                                field.onChange(
+                                  (field.value || []).filter(
+                                    (value: string) => value !== e.target.value
+                                  )
+                                );
                               }
-                            }}
-                          />
-                          <span>{o}</span>
-                        </label>
-                      ))}
-                    </div>
-                  );
-                }}
+                            }
+                          }}
+                        />
+
+                        <span>{o}</span>
+                      </label>
+                    ))}
+                  </div>
+                )}
               />
+
               <div className={styles["buttons-container"]}>
                 {questionIndex !== 0 && (
                   <button
@@ -102,6 +133,7 @@ const Step1Form: React.FC = () => {
 
                 {questionIndex < step1.length - 1 ? (
                   <button
+                    type="button"
                     onClick={handleNextQuestion}
                     className={styles["next-button"]}
                   >

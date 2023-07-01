@@ -6,6 +6,8 @@
   "step1IntroButtonText": "Başlayalım",
   "headerLoginButtonText": "Giriş",
   "headerSignupButtonText": "Kayıt",
+  "footerNewsletterInputPlaceholder": "E-posta adresiniz",
+  "footerNewsletterButtonText": "Abone Ol",
   "footerLinkedinAltText": "Linkedin",
   "footerYoutubeAltText": "Youtube",
   "footerTwitterAltText": "Twitter",
@@ -23,5 +25,6 @@
   "step1OutroText2": "Onun altından da aylık frekansta gönderdiğimiz bültenimize üye olabilirsiniz.",
   "step1OutroImageAltText": "Step 1 Çıkış",
   "calendlyModalCloseIconAltText": "Kapat",
-  "openCalendlyModalButtonText": "Calendly"
+  "openCalendlyModalButtonText": "Calendly",
+  "formFieldMissingMessage": "Lütfen seçim yapın."
 }
