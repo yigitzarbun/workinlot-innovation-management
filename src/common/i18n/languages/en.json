@@ -21,5 +21,7 @@
   "step1OutroTitle": "Thank you very much for taking the time for us.",
   "step1OutroText1": "You can reserve our time for a free consultation on innovation and entrepreneurship from Workinlot by using the Calendly link below.",
   "step1OutroText2": "You can also subscribe to our monthly newsletter by clicking on the link below.",
-  "step1OutroImageAltText": "Step 1 Outro"
+  "step1OutroImageAltText": "Step 1 Outro",
+  "calendlyModalCloseIconAltText": "Close",
+  "openCalendlyModalButtonText": "Calendly"
 }

@@ -7,7 +7,7 @@ const Step1Outcome = () => {
   return (
     <div className={styles["step1-outro-container"]}>
       <img
-        src="/step-1/step-1-outro.png"
+        src="/step-1/step-1-outcome.png"
         alt={i18n.t("step1OutcomeImageAltText")}
         className={styles["step1-outro-container"]}
       />

@@ -21,5 +21,7 @@
   "step1OutroTitle": "Bize zaman ayırdığınız için çok teşekkürler.",
   "step1OutroText1": "İnovasyon ve girişimcilik konusunda Workinlot'dan ücretsiz konsültasyon almak için aşağıdaki Calendly linkinden zamanımızı rezerve edebilirsiniz.",
   "step1OutroText2": "Onun altından da aylık frekansta gönderdiğimiz bültenimize üye olabilirsiniz.",
-  "step1OutroImageAltText": "Step 1 Çıkış"
+  "step1OutroImageAltText": "Step 1 Çıkış",
+  "calendlyModalCloseIconAltText": "Kapat",
+  "openCalendlyModalButtonText": "Calendly"
 }
