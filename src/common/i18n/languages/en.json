@@ -41,5 +41,9 @@
   "step2ExitButtonText": "Click here to get free consultation from Workinlot about Innovation and Entrepreneurship.",
   "step2OutcomeFirstNamelInputPlaceholder": "e.g. John",
   "step2OutcomeLastNamelInputPlaceholder": "e.g. Doe",
-  "step2OutcomeEmailInputPlaceholder": "e.g. john@doe.com"
+  "step2OutcomeEmailInputPlaceholder": "e.g. john@doe.com",
+  "signupFirstNamelInputPlaceholder": "örn. John",
+  "signupLastNamelInputPlaceholder": "örn. Doe",
+  "signupEmailInputPlaceholder": "örn. john@doe.com",
+  "signupButtonText": "Signup"
 }

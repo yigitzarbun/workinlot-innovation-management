@@ -1,0 +1,45 @@
+@import "/src/common/styles/colors.scss";
+
+.signup-page-container {
+  width: 500px;
+  margin: 5vh auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-title {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  margin-top: 20px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+
+input {
+  padding: 5px;
+  width: 100%;
+}
+
+.error-field {
+  color: salmon;
+}
+
+.form-button {
+  padding: 5px;
+  border: 1px solid $wnl-orange;
+  font-weight: bold;
+}
+
+.form-button:hover {
+  background-color: $wnl-orange;
+}

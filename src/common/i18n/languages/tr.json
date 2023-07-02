@@ -41,5 +41,9 @@
   "step2ExitButtonText": "İnovasyon ve Girişimcilik hakkında Workinlot'dan ücretsiz konsültasyon almak için buraya tıklayın.",
   "step2OutcomeFirstNamelInputPlaceholder": "örn. John",
   "step2OutcomeLastNamelInputPlaceholder": "örn. Doe",
-  "step2OutcomeEmailInputPlaceholder": "örn. john@doe.com"
+  "step2OutcomeEmailInputPlaceholder": "örn. john@doe.com",
+  "signupFirstNamelInputPlaceholder": "örn. John",
+  "signupLastNamelInputPlaceholder": "örn. Doe",
+  "signupEmailInputPlaceholder": "örn. john@doe.com",
+  "signupButtonText": "Kayıt Ol"
 }
