@@ -4,7 +4,7 @@ import paths from "../../../routing/Paths";
 import i18n from "../../../common/i18n/i18n";
 import { step2 } from "../../../data/step2/Step2";
 import styles from "./styles.module.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 type FormData = {
   innovation_goals: string[];
@@ -17,8 +17,10 @@ const Step2FormComp: React.FC = () => {
   const { handleSubmit, control, formState } = useForm<FormData>({
     mode: "onChange",
   });
+  const navigate = useNavigate();
   const onSubmit = (data: FormData) => {
     console.log(data);
+    navigate(paths.STEP_2_OUTCOME);
   };
 
   const [questionIndex, setQuestionIndex] = useState(0);

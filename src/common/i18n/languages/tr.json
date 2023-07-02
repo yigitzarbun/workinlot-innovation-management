@@ -32,5 +32,14 @@
   "step2IntroButtonText": "Başlayalım",
   "s2q1": "Şirketiniz için inovasyon hedeflerinizi sırasına göre nasıl yerleştirirdiniz?",
   "s2q2": "Aşağıdaki cümleler sizin şirketiniz için ne kadar doğru?",
-  "s2q3": "6 ay içerisinde kurumsal inovayonda başarıyı nasıl tanımlarsınız?"
+  "s2q3": "6 ay içerisinde kurumsal inovayonda başarıyı nasıl tanımlarsınız?",
+  "step2OutcomeText": "İnovasyon olgunluğunuza ve hedeflerinize göre bulunduğunuz noktayı ve varmak istediğiniz yeri görselde bulabilirsiniz. Altında kısa, orta ve uzun vade taslak tavsiyelerimiz bulunmaktadır. Daha fazla bilgi için Workinlot vaka çalışmalarını inceleyebilirsiniz.",
+  "step2OutcomeImageAltText": "Step-2 İnovasyon Yol Haritası",
+  "step2CTAText": "48 saat içinde araştırma yapıp size daha detaylı bir yol haritası yaklaşımı sunmamız ve alakalı içerikleri paylaşmamız için lütfen isim ve e-posta adresinizi bırakınız.",
+  "step2CTAButtonText": "Gönder",
+  "step2CaseStudiesNavText": "Vaka Çalışmalarını İncele",
+  "step2ExitButtonText": "İnovasyon ve Girişimcilik hakkında Workinlot'dan ücretsiz konsültasyon almak için buraya tıklayın.",
+  "step2OutcomeFirstNamelInputPlaceholder": "örn. John",
+  "step2OutcomeLastNamelInputPlaceholder": "örn. Doe",
+  "step2OutcomeEmailInputPlaceholder": "örn. john@doe.com"
 }

@@ -12,4 +12,5 @@ export default {
   STEP_1_OUTRO: "/adim-1-outro",
   STEP_2_INTRO: "/adim-2",
   STEP_2_FORM: "/adim-2-form",
+  STEP_2_OUTCOME: "/adim-2-sonuc",
 } as Paths;

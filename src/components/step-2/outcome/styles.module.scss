@@ -1,0 +1,114 @@
+@import "/src/common//styles/colors.scss";
+@import "/src/common//styles/common.scss";
+
+.step-2-outro-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+  padding: 25px;
+  height: 100%;
+}
+
+.step-2-roadmap-container {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  row-gap: 10px;
+}
+.step-2-outro-image {
+  width: 100%;
+}
+
+.case-studies-link {
+  background-color: $wnl-orange;
+  padding: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.case-studies-link:hover {
+  background-color: black;
+}
+.step-2-table {
+  text-align: left;
+  border: 1px solid gray;
+  margin-top: 5px;
+}
+
+th,
+td {
+  padding: 10px;
+  border: 1px solid gray;
+}
+
+th {
+  color: $wnl-orange;
+}
+.step-2-outro-text-container {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.step-2-intro-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.step-2-outcome-results-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 35px auto;
+  row-gap: 20px;
+  column-gap: 15px;
+}
+
+.step-2-outcome-results-text-container {
+  background-color: rgba(255, 165, 0, 0.1);
+}
+
+.step-2-outcome-results-textbox {
+  padding: $box-padding;
+  color: $wnl-orange;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
+  width: 70%;
+  margin-bottom: 15px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+
+input {
+  padding: 5px;
+}
+.form-button {
+  border: 1px solid $wnl-orange;
+  padding: 5px;
+  font-weight: bold;
+}
+
+.form-button:hover {
+  background-color: $wnl-orange;
+}
+
+.error-field {
+  color: salmon;
+}
+
+.step-2-exit-nav-text {
+  font-size: 0.9rem;
+}
+
+.step-2-exit-nav-text:hover {
+  color: $wnl-orange;
+}

@@ -32,5 +32,14 @@
   "step2IntroButtonText": "Let's begin",
   "s2q1": "How would you prioritize your innovation goals for your company?",
   "s2q2": "How accurate are the following sentences for your company?",
-  "s2q3": "How would you define success in corporate innovation within a 6-month timeframe?"
+  "s2q3": "How would you define success in corporate innovation within a 6-month timeframe?",
+  "step2OutcomeText": "You can find your current position and the desired destination based on your innovation maturity and goals in the visualization. Below, you will find our draft recommendations for the short, medium, and long term. For more information, you can explore Workinlot case studies.",
+  "step2OutcomeImageAltText": "Step 2 Outcome Roadmap",
+  "step2CTAText": "Please leave your name and email address for us to conduct research and provide you with a more detailed roadmap approach and relevant content within 48 hours.",
+  "step2CTAButtonText": "Send",
+  "step2CaseStudiesNavText": "Explore Case Studies",
+  "step2ExitButtonText": "Click here to get free consultation from Workinlot about Innovation and Entrepreneurship.",
+  "step2OutcomeFirstNamelInputPlaceholder": "e.g. John",
+  "step2OutcomeLastNamelInputPlaceholder": "e.g. Doe",
+  "step2OutcomeEmailInputPlaceholder": "e.g. john@doe.com"
 }
