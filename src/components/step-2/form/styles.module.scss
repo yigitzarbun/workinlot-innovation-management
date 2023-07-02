@@ -21,6 +21,58 @@
   column-gap: 20px;
   row-gap: 20px;
   flex-wrap: wrap;
+  width: 100%;
+}
+
+.ranking-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.ranking-option-container {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 30px;
+}
+
+.likert-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.likert-description {
+  display: flex;
+  justify-content: flex-end;
+  color: $wnl-orange;
+  font-weight: bold;
+}
+.likert-option-container {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 30px;
+}
+
+.likert-option-label {
+  width: 70%;
+}
+
+.likert-option {
+  display: flex;
+  column-gap: 5px;
+  align-items: center;
+}
+
+.multiple-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.multiple-label {
+  display: flex;
+  column-gap: 5px;
 }
 
 .check-box-transparent {
@@ -101,7 +153,8 @@
 
 .progress-bar-container {
   display: flex;
-  width: 50%;
+  justify-content: center;
+  width: 60%;
   margin: 0 auto;
 }
 .empty-bar {

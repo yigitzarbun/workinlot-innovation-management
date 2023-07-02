@@ -69,57 +69,94 @@ const Step2FormComp: React.FC = () => {
                   render={({ field }) => (
                     <>
                       {q.question_type === "ranking" && (
-                        <div className={styles["options-container"]}>
+                        <div className={styles["ranking-container"]}>
                           <Controller
                             control={control}
                             name={q.short_name as keyof FormData}
-                            render={({ field }) => (
-                              <>
-                                {q.options.map((o, index) => (
-                                  <div
-                                    key={o}
-                                    className={
-                                      styles["ranking-option-container"]
-                                    }
-                                  >
-                                    <span className={styles["option-label"]}>
-                                      {o}
-                                    </span>
-                                    <select
-                                      className={styles["ranking-select"]}
-                                      value={field.value && field.value[index]}
-                                      onChange={(e) => {
-                                        const updatedValue = [
-                                          ...(field.value || []),
-                                        ];
-                                        updatedValue[index] = parseInt(
-                                          e.target.value
-                                        );
-                                        field.onChange(updatedValue);
-                                      }}
+                            render={({ field }) => {
+                              const selectedScores = field.value || [];
+
+                              const handleScoreChange = (index, score) => {
+                                const updatedScores = [...selectedScores];
+                                updatedScores[index] = score;
+
+                                field.onChange(updatedScores);
+                              };
+
+                              const isScoreSelected = (score) => {
+                                return selectedScores.includes(score);
+                              };
+
+                              const sortedOptions = q.options
+                                .slice()
+                                .sort((a, b) => {
+                                  const scoreA =
+                                    selectedScores[q.options.indexOf(a)];
+                                  const scoreB =
+                                    selectedScores[q.options.indexOf(b)];
+                                  return scoreA - scoreB;
+                                });
+
+                              return (
+                                <>
+                                  {sortedOptions.map((o, index) => (
+                                    <div
+                                      key={o.statement} // Use statement as the unique key
+                                      className={
+                                        styles["ranking-option-container"]
+                                      }
                                     >
-                                      {Array.from(
-                                        Array(q.options.length),
-                                        (_, i) => i + 1
-                                      ).map((value) => (
-                                        <option key={value} value={value}>
-                                          {value}
-                                        </option>
-                                      ))}
-                                    </select>
-                                  </div>
-                                ))}
-                              </>
-                            )}
+                                      <span className={styles["option-label"]}>
+                                        {o.statement}
+                                      </span>
+                                      <select
+                                        className={styles["ranking-select"]}
+                                        value={
+                                          selectedScores[
+                                            q.options.indexOf(o)
+                                          ] || ""
+                                        }
+                                        onChange={(e) => {
+                                          const selectedScore = parseInt(
+                                            e.target.value
+                                          );
+                                          handleScoreChange(
+                                            q.options.indexOf(o),
+                                            selectedScore
+                                          );
+                                        }}
+                                      >
+                                        <option value="">Sıra seç</option>
+                                        {Array.from(
+                                          Array(q.options.length),
+                                          (_, i) => i + 1
+                                        ).map((value) => (
+                                          <option
+                                            key={value}
+                                            value={value}
+                                            disabled={isScoreSelected(value)}
+                                          >
+                                            {value}
+                                          </option>
+                                        ))}
+                                      </select>
+                                    </div>
+                                  ))}
+                                </>
+                              );
+                            }}
                           />
                         </div>
                       )}
                       {q.question_type === "likert" && (
-                        <div className={styles["options-container"]}>
+                        <div className={styles["likert-container"]}>
+                          <p className={styles["likert-description"]}>
+                            1 = Kesinlikle yanlış, 5 = Kesinlikle doğru
+                          </p>
                           <Controller
                             control={control}
                             name={q.short_name as keyof FormData}
-                            defaultValue={[]} // Initialize the value as an empty array
+                            defaultValue={[]}
                             render={({ field }) => (
                               <>
                                 {q.options.map((option, index) => (
@@ -167,7 +204,7 @@ const Step2FormComp: React.FC = () => {
                       )}
 
                       {q.question_type === "multiple" && (
-                        <div className={styles["options-container"]}>
+                        <div className={styles["multiple-container"]}>
                           <Controller
                             control={control}
                             name={q.short_name as keyof FormData}
@@ -176,7 +213,7 @@ const Step2FormComp: React.FC = () => {
                                 {q.options.map((o) => (
                                   <label
                                     key={o}
-                                    className={styles["checkbox-option"]}
+                                    className={styles["multiple-label"]}
                                   >
                                     <input
                                       type="checkbox"
