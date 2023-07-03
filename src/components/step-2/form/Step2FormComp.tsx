@@ -29,7 +29,7 @@ const Step2FormComp: React.FC = () => {
     mode: "onChange",
   });
   const navigate = useNavigate();
-  const onSubmit = (data: FormData) => {
+  const onSubmit = () => {
     const dataWide: UserForm = {
       currentUserId: currentUser?.user_id || null,
       prioritization: currentUserExistingFormData?.prioritization || [],
@@ -94,7 +94,7 @@ const Step2FormComp: React.FC = () => {
                   name={q.short_name as keyof FormData}
                   rules={{ required: i18n.t("formFieldMissingMessage") }}
                   defaultValue={Array(q.options.length).fill(0)}
-                  render={({ field }) => (
+                  render={() => (
                     <>
                       {q.question_type === "ranking" && (
                         <div className={styles["ranking-container"]}>
