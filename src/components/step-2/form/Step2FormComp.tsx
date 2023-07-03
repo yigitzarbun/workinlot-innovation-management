@@ -10,8 +10,8 @@ import { addUserFormData } from "../../../store/slices/userFormsSlice";
 import { UserForm } from "../../../store/slices/userFormsSlice";
 
 type FormData = {
-  innovation_goals: string[];
-  innovation_state: string[];
+  innovation_goals: number[];
+  innovation_state: number[];
   success_definition: string[];
   ranking: (string | number)[];
 };
@@ -29,30 +29,25 @@ const Step2FormComp: React.FC = () => {
     mode: "onChange",
   });
   const navigate = useNavigate();
-  const onSubmit = () => {
+  const onSubmit = (data: FormData) => {
     const dataWide: UserForm = {
       currentUserId: currentUser?.user_id || null,
       prioritization: currentUserExistingFormData?.prioritization || [],
       scale: currentUserExistingFormData?.scale || "",
       sector: currentUserExistingFormData?.sector || [],
       unit: currentUserExistingFormData?.unit || [],
-      innovation_goals: currentUserExistingFormData
-        ? currentUserExistingFormData.innovation_goals
-        : [],
-      innovation_state: currentUserExistingFormData
-        ? currentUserExistingFormData.innovation_state
-        : [],
-      success_definition: currentUserExistingFormData
-        ? currentUserExistingFormData.success_definition
-        : [],
+      innovation_goals: data.innovation_goals,
+      innovation_state: data.innovation_state,
+      success_definition: data.success_definition,
     };
 
     dispatch(addUserFormData(dataWide));
+    console.log(dataWide);
     navigate(paths.STEP_2_OUTCOME);
   };
 
   const [questionIndex, setQuestionIndex] = useState(0);
-  const handleNextQuestion = async (): Promise<void> => {
+  const handleNextQuestion = () => {
     handleSubmit(() => {
       setQuestionIndex((questionIndex + 1) % step2.length);
     })();
@@ -263,29 +258,35 @@ const Step2FormComp: React.FC = () => {
                                     <input
                                       type="checkbox"
                                       value={o}
-                                      checked={field.value?.includes(o)}
+                                      checked={(
+                                        field.value as string[]
+                                      ).includes(o)}
                                       onChange={(e) => {
                                         const isChecked = e.target.checked;
+                                        const targetValue =
+                                          e.target.value.toString();
+
                                         if (isChecked) {
                                           field.onChange([
-                                            ...(field.value || []),
-                                            e.target.value,
+                                            ...field.value,
+                                            targetValue,
                                           ]);
                                         } else {
                                           field.onChange(
-                                            (field.value || []).filter(
-                                              (value: string | number) =>
-                                                value !== e.target.value
+                                            field.value.filter(
+                                              (value) => value !== targetValue
                                             )
                                           );
                                         }
                                       }}
                                     />
+
                                     <span>{o}</span>
                                   </label>
                                 ))}
                               </>
                             )}
+                            defaultValue={[] as (string | number)[]}
                           />
                         </div>
                       )}
