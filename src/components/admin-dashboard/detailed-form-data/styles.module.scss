@@ -1,0 +1,83 @@
+@import "/src/common/styles/colors.scss";
+
+.user-form-data-container {
+  display: flex;
+  justify-content: space-between;
+}
+.user-info-container {
+  display: flex;
+  flex-direction: column;
+  width: 10%;
+}
+
+.user-info-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: $wnl-orange;
+}
+
+.user-info-sub-container {
+  display: flex;
+  flex-direction: column;
+  column-gap: 5px;
+}
+
+.user-info-sub-container-title {
+  font-weight: bold;
+  color: gray;
+}
+
+.step-1-answers-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  width: 40%;
+}
+
+.step-1-info-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: $wnl-orange;
+}
+
+.step-1-answers-sub-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.step-1-sub-container-title {
+  font-weight: bold;
+  color: gray;
+}
+
+.step-2-answers-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  width: 40%;
+}
+
+.step-2-info-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: $wnl-orange;
+}
+
+.step-2-answers-sub-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.step-2-sub-container-title {
+  font-weight: bold;
+  color: gray;
+}
+
+.step-2-statement-score-container {
+  display: flex;
+  column-gap: 5px;
+}
+
+.score {
+  color: $wnl-orange;
+}

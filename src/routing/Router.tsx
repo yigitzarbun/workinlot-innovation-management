@@ -15,6 +15,12 @@ const Step1Outro = lazy(() => import("../modules/step-1/outro/Outro"));
 const Step2Intro = lazy(() => import("../modules/step-2/intro/Step2"));
 const Step2Form = lazy(() => import("../modules/step-2/form/Step2Form"));
 const Step2Outcome = lazy(() => import("../modules/step-2/outcome/Outcome"));
+const AdminDashboard = lazy(
+  () => import("../modules/admin-dashboard/dashboard/AdminDashboard")
+);
+const DetailedFormData = lazy(
+  () => import("../modules/admin-dashboard/detailed-form-data/DetailedFormData")
+);
 
 interface Routes {
   path: string;
@@ -39,6 +45,11 @@ const routes: Routes[] = [
   { path: paths.STEP_2_INTRO, element: getRouteElement(Step2Intro) },
   { path: paths.STEP_2_FORM, element: getRouteElement(Step2Form) },
   { path: paths.STEP_2_OUTCOME, element: getRouteElement(Step2Outcome) },
+  { path: paths.ADMIN_DASHBOARD, element: getRouteElement(AdminDashboard) },
+  {
+    path: paths.DETAILED_FORM_DATA,
+    element: getRouteElement(DetailedFormData),
+  },
   { path: paths.NOT_FOUND, element: getRouteElement(NotFound) },
 ];
 

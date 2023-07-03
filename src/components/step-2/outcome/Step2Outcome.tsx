@@ -3,6 +3,9 @@ import i18n from "../../../common/i18n/i18n";
 import styles from "./styles.module.scss";
 import paths from "../../../routing/Paths";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useAppDispatch, useAppSelector } from "../../../store/hooks";
+import { addCurrentUser } from "../../../store/slices/currentUserSlice";
+import { addUser } from "../../../store/slices/usersSlice";
 
 type FormValues = {
   fname: string;
@@ -10,7 +13,11 @@ type FormValues = {
   email: string;
 };
 const Step2Outcome = () => {
+  const dispatch = useAppDispatch();
+
   const navigate = useNavigate();
+
+  const currentUser = useAppSelector((store) => store.currentUser.currentUser);
   const {
     register,
     handleSubmit,
@@ -19,7 +26,15 @@ const Step2Outcome = () => {
   } = useForm<FormValues>();
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
-    console.log(data);
+    const dataWide = {
+      user_id: currentUser.user_id,
+      fname: data.fname,
+      lname: data.lname,
+      email: data.email,
+      role: currentUser.role,
+    };
+    dispatch(addCurrentUser(dataWide));
+    dispatch(addUser(dataWide));
     reset();
     navigate(paths.STEP_1_OUTRO);
   };

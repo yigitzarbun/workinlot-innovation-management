@@ -13,4 +13,6 @@ export default {
   STEP_2_INTRO: "/adim-2",
   STEP_2_FORM: "/adim-2-form",
   STEP_2_OUTCOME: "/adim-2-sonuc",
+  ADMIN_DASHBOARD: "/admin-dashboard",
+  DETAILED_FORM_DATA: "/detailed-form-data",
 } as Paths;

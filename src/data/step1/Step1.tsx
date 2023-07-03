@@ -6,7 +6,7 @@ export const step1 = [
     question_no: 1,
     question: i18n.t("s1q1"),
     options: ["Ticaret", "Hizmet", "Üretim", "Knowledge"],
-    short_name: "sector",
+    short_name: "company_sectors",
     question_type: "multiple",
   },
   {
@@ -18,7 +18,7 @@ export const step1 = [
       "Büyük Ölçekli (100-500 çalışan)",
       "Holding veya Grup Şirketi",
     ],
-    short_name: "scale",
+    short_name: "company_scale",
     question_type: "single",
   },
   {
@@ -36,7 +36,7 @@ export const step1 = [
       "İş Geliştirme",
       "Diğer",
     ],
-    short_name: "unit",
+    short_name: "business_units",
     question_type: "multiple",
   },
   {
@@ -54,7 +54,7 @@ export const step1 = [
       "İnovasyon Yarışmaları ve Hackhatonlar",
       "Girişim Sermayesi Yatırımları ve Satın Alımlar",
     ],
-    short_name: "priorities",
+    short_name: "innovation_priorities",
     question_type: "multiple",
   },
 ];

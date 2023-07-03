@@ -45,5 +45,7 @@
   "signupFirstNamelInputPlaceholder": "örn. John",
   "signupLastNamelInputPlaceholder": "örn. Doe",
   "signupEmailInputPlaceholder": "örn. john@doe.com",
-  "signupButtonText": "Kayıt Ol"
+  "signupButtonText": "Kayıt Ol",
+  "loginEmailInputPlaceholder": "örn. john@doe.com",
+  "loginButtonText": "Giriş Yap"
 }

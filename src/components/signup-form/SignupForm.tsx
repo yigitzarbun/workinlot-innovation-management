@@ -1,16 +1,20 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import i18n from "../../common/i18n/i18n";
 import styles from "./styles.module.scss";
 import paths from "../../routing/Paths";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useAppDispatch } from "../../store/hooks";
+import { addUser } from "../../store/slices/usersSlice";
 
 type FormValues = {
   fname: string;
   lname: string;
   email: string;
   password: string;
+  role: string;
 };
-const Register = () => {
+const SignupForm = () => {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const {
     register,
@@ -19,10 +23,15 @@ const Register = () => {
     formState: { errors },
   } = useForm<FormValues>();
 
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<FormValues> = (data: FormValues) => {
+    const dataWide = {
+      ...data,
+      role: "user",
+      user_id: Date.now(),
+    };
+    dispatch(addUser(dataWide));
     reset();
-    navigate(paths.HOME);
+    navigate(paths.LOGIN);
   };
 
   return (
@@ -83,4 +92,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default SignupForm;

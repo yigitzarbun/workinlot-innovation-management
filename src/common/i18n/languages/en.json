@@ -45,5 +45,7 @@
   "signupFirstNamelInputPlaceholder": "örn. John",
   "signupLastNamelInputPlaceholder": "örn. Doe",
   "signupEmailInputPlaceholder": "örn. john@doe.com",
-  "signupButtonText": "Signup"
+  "signupButtonText": "Signup",
+  "loginEmailInputPlaceholder": "örn. john@doe.com",
+  "loginButtonText": "Login"
 }

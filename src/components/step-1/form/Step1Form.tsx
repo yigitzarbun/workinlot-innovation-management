@@ -5,12 +5,22 @@ import { step1 } from "../../../data/step1/Step1";
 import { Link, useNavigate } from "react-router-dom";
 import paths from "../../../routing/Paths";
 import i18n from "../../../common/i18n/i18n";
+import { useAppDispatch, useAppSelector } from "../../../store/hooks";
+import { addUserFormData } from "../../../store/slices/userFormsSlice";
 
 type FormData = {
   company_sectors: string[];
   company_scale: string;
-  company_units: string[];
-  innovation_titles: string[];
+  business_units: string[];
+  innovation_priorities: string[];
+};
+
+type CurrentUser = {
+  user_id: number;
+  fname: string;
+  lname: string;
+  email: string;
+  role: string;
 };
 
 const Step1Form: React.FC = () => {
@@ -18,9 +28,22 @@ const Step1Form: React.FC = () => {
     mode: "onChange",
   });
   const navigate = useNavigate();
-
+  const dispatch = useAppDispatch();
+  const currentUser: CurrentUser = useAppSelector(
+    (store) => store.currentUser.currentUser
+  );
   const onSubmit = (data: FormData) => {
-    console.log(data);
+    const dataWide = {
+      currentUserId: currentUser.user_id,
+      prioritization: data.innovation_priorities,
+      scale: data.company_scale,
+      sector: data.company_sectors,
+      unit: data.business_units,
+      innovation_goals: "",
+      innovation_state: "",
+      success_definition: "",
+    };
+    dispatch(addUserFormData(dataWide));
     navigate(paths.STEP_1_OUTCOME);
   };
 

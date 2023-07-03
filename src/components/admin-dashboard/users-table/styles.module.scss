@@ -1,0 +1,26 @@
+@import "/src/common/styles/colors.scss";
+
+.table-container {
+  width: 100%;
+  text-align: left;
+}
+
+th,
+td {
+  border: 1px solid gray;
+  padding: 5px;
+}
+
+thead {
+  background-color: black;
+}
+
+.view-button {
+  border: 1px solid $wnl-orange;
+  padding: 3px;
+  text-align: center;
+}
+
+.view-button:hover {
+  background-color: $wnl-orange;
+}

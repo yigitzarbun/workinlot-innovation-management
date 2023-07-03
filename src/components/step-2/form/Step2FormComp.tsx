@@ -5,6 +5,8 @@ import i18n from "../../../common/i18n/i18n";
 import { step2 } from "../../../data/step2/Step2";
 import styles from "./styles.module.scss";
 import { Link, useNavigate } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../../store/hooks";
+import { addUserFormData } from "../../../store/slices/userFormsSlice";
 
 type FormData = {
   innovation_goals: string[];
@@ -14,12 +16,30 @@ type FormData = {
 };
 
 const Step2FormComp: React.FC = () => {
+  const dispatch = useAppDispatch();
+  const currentUser = useAppSelector((store) => store.currentUser.currentUser);
+  const userFormData = useAppSelector(
+    (store) => store.userFormData.userFormData
+  );
+  const currentUserExistingFormData = userFormData.filter(
+    (d) => d.currentUserId === currentUser.user_id
+  )[0];
   const { handleSubmit, control, formState } = useForm<FormData>({
     mode: "onChange",
   });
   const navigate = useNavigate();
   const onSubmit = (data: FormData) => {
-    console.log(data);
+    const dataWide = {
+      currentUserId: currentUser.user_id,
+      prioritization: currentUserExistingFormData.prioritization,
+      scale: currentUserExistingFormData.scale,
+      sector: currentUserExistingFormData.sector,
+      unit: currentUserExistingFormData.unit,
+      innovation_goals: data.innovation_goals,
+      innovation_state: data.innovation_state,
+      success_definition: data.success_definition,
+    };
+    dispatch(addUserFormData(dataWide));
     navigate(paths.STEP_2_OUTCOME);
   };
 
@@ -96,20 +116,20 @@ const Step2FormComp: React.FC = () => {
                                     selectedScores[q.options.indexOf(a)];
                                   const scoreB =
                                     selectedScores[q.options.indexOf(b)];
-                                  return scoreA - scoreB;
+                                  return Number(scoreA) - Number(scoreB);
                                 });
 
                               return (
                                 <>
-                                  {sortedOptions.map((o, index) => (
+                                  {sortedOptions.map((o) => (
                                     <div
-                                      key={o.statement} // Use statement as the unique key
+                                      key={o} // Use statement as the unique key
                                       className={
                                         styles["ranking-option-container"]
                                       }
                                     >
                                       <span className={styles["option-label"]}>
-                                        {o.statement}
+                                        {o}
                                       </span>
                                       <select
                                         className={styles["ranking-select"]}

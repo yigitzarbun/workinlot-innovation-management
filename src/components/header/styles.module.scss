@@ -11,6 +11,22 @@
   width: 200px;
 }
 
+.profile-container {
+  display: flex;
+  column-gap: 30px;
+  font-weight: bold;
+}
+
+.dashboard-link {
+  color: rgb(52, 187, 52);
+}
+.dashboard-link:hover {
+  color: $wnl-orange;
+}
+.logout-button:hover {
+  color: $wnl-orange;
+}
+
 .login-signup-container {
   display: flex;
   column-gap: 20px;
