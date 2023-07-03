@@ -12,7 +12,7 @@ type FormData = {
   innovation_goals: string[];
   innovation_state: string[];
   success_definition: string[];
-  ranking: number[];
+  ranking: (string | number)[];
 };
 
 const Step2FormComp: React.FC = () => {
@@ -45,12 +45,9 @@ const Step2FormComp: React.FC = () => {
 
   const [questionIndex, setQuestionIndex] = useState(0);
   const handleNextQuestion = async (): Promise<void> => {
-    const isValid = await handleSubmit(() => {
+    handleSubmit(() => {
       setQuestionIndex((questionIndex + 1) % step2.length);
     })();
-    if (isValid) {
-      setQuestionIndex((questionIndex + 1) % step2.length);
-    }
   };
 
   const handlePrevQuestion = () => {
@@ -97,17 +94,27 @@ const Step2FormComp: React.FC = () => {
                             control={control}
                             name={q.short_name as keyof FormData}
                             render={({ field }) => {
-                              const selectedScores = field.value || [];
+                              const selectedScores = field.value.map(
+                                (value: string | number) => Number(value)
+                              );
 
-                              const handleScoreChange = (index, score) => {
+                              const handleScoreChange = (
+                                index: number,
+                                score: number
+                              ) => {
                                 const updatedScores = [...selectedScores];
                                 updatedScores[index] = score;
 
                                 field.onChange(updatedScores);
                               };
 
-                              const isScoreSelected = (score) => {
-                                return selectedScores.includes(score);
+                              const isScoreSelected = (
+                                value: string | number
+                              ): boolean => {
+                                const selectedScores = field.value.map(
+                                  (value: string | number) => String(value)
+                                );
+                                return selectedScores.includes(String(value));
                               };
 
                               const sortedOptions = q.options
@@ -141,8 +148,15 @@ const Step2FormComp: React.FC = () => {
                                         }
                                         onChange={(e) => {
                                           const selectedScore = parseInt(
-                                            e.target.value
+                                            e.target.value,
+                                            10
+                                          ); // Parse the string value to an integer
+
+                                          handleScoreChange(
+                                            q.options.indexOf(o),
+                                            selectedScore
                                           );
+
                                           handleScoreChange(
                                             q.options.indexOf(o),
                                             selectedScore
@@ -252,7 +266,7 @@ const Step2FormComp: React.FC = () => {
                                         } else {
                                           field.onChange(
                                             (field.value || []).filter(
-                                              (value: string) =>
+                                              (value: string | number) =>
                                                 value !== e.target.value
                                             )
                                           );

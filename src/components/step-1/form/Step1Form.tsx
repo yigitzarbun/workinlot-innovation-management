@@ -50,12 +50,9 @@ const Step1Form: React.FC = () => {
   const [questionIndex, setQuestionIndex] = useState(0);
 
   const handleNextQuestion = async (): Promise<void> => {
-    const isValid = await handleSubmit(() => {
+    handleSubmit(() => {
       setQuestionIndex((questionIndex + 1) % step1.length);
     })();
-    if (isValid) {
-      setQuestionIndex((questionIndex + 1) % step1.length);
-    }
   };
 
   const handlePrevQuestion = () => {
@@ -130,12 +127,11 @@ const Step1Form: React.FC = () => {
                                     e.target.value,
                                   ]);
                                 } else {
-                                  field.onChange(
-                                    (field.value || []).filter(
+                                  Array.isArray(field.value) &&
+                                    field.value.filter(
                                       (value: string) =>
                                         value !== e.target.value
-                                    )
-                                  );
+                                    );
                                 }
                               }
                             }}
