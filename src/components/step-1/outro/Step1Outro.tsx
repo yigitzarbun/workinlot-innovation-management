@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import i18n from "../../../common/i18n/i18n";
 import CalendlyModal from "../calendly-modal/CalendlyModal";
 import styles from "./styles.module.scss";

@@ -29,18 +29,18 @@ const Step1Form: React.FC = () => {
   });
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const currentUser: CurrentUser = useAppSelector(
+  const currentUser: CurrentUser | null = useAppSelector(
     (store) => store.currentUser.currentUser
   );
   const onSubmit = (data: FormData) => {
     const dataWide = {
-      currentUserId: currentUser.user_id,
+      currentUserId: currentUser ? currentUser.user_id : null,
       prioritization: data.innovation_priorities,
       scale: data.company_scale,
       sector: data.company_sectors,
       unit: data.business_units,
-      innovation_goals: "",
-      innovation_state: "",
+      innovation_goals: 0,
+      innovation_state: 0,
       success_definition: "",
     };
     dispatch(addUserFormData(dataWide));

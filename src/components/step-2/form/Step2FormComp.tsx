@@ -7,6 +7,7 @@ import styles from "./styles.module.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../../store/hooks";
 import { addUserFormData } from "../../../store/slices/userFormsSlice";
+import { UserForm } from "../../../store/slices/userFormsSlice";
 
 type FormData = {
   innovation_goals: string[];
@@ -21,24 +22,31 @@ const Step2FormComp: React.FC = () => {
   const userFormData = useAppSelector(
     (store) => store.userFormData.userFormData
   );
-  const currentUserExistingFormData = userFormData.filter(
-    (d) => d.currentUserId === currentUser.user_id
-  )[0];
+  const currentUserExistingFormData = userFormData.find(
+    (formData) => formData.currentUserId === currentUser?.user_id
+  );
   const { handleSubmit, control, formState } = useForm<FormData>({
     mode: "onChange",
   });
   const navigate = useNavigate();
   const onSubmit = (data: FormData) => {
-    const dataWide = {
-      currentUserId: currentUser.user_id,
-      prioritization: currentUserExistingFormData.prioritization,
-      scale: currentUserExistingFormData.scale,
-      sector: currentUserExistingFormData.sector,
-      unit: currentUserExistingFormData.unit,
-      innovation_goals: data.innovation_goals,
-      innovation_state: data.innovation_state,
-      success_definition: data.success_definition,
+    const dataWide: UserForm = {
+      currentUserId: currentUser?.user_id || null,
+      prioritization: currentUserExistingFormData?.prioritization || [],
+      scale: currentUserExistingFormData?.scale || "",
+      sector: currentUserExistingFormData?.sector || [],
+      unit: currentUserExistingFormData?.unit || [],
+      innovation_goals: currentUserExistingFormData
+        ? currentUserExistingFormData.innovation_goals
+        : [],
+      innovation_state: currentUserExistingFormData
+        ? currentUserExistingFormData.innovation_state
+        : [],
+      success_definition: currentUserExistingFormData
+        ? currentUserExistingFormData.success_definition
+        : [],
     };
+
     dispatch(addUserFormData(dataWide));
     navigate(paths.STEP_2_OUTCOME);
   };

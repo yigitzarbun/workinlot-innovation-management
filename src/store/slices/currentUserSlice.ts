@@ -5,7 +5,7 @@ enum LsKeys {
   currentUser = "currentUser",
 }
 
-interface CurrentUser {
+export interface CurrentUser {
   user_id: number;
   fname: string;
   lname: string;

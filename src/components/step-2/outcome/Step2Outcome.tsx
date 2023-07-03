@@ -6,6 +6,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { useAppDispatch, useAppSelector } from "../../../store/hooks";
 import { addCurrentUser } from "../../../store/slices/currentUserSlice";
 import { addUser } from "../../../store/slices/usersSlice";
+import { CurrentUser } from "../../../store/slices/currentUserSlice";
 
 type FormValues = {
   fname: string;
@@ -17,7 +18,9 @@ const Step2Outcome = () => {
 
   const navigate = useNavigate();
 
-  const currentUser = useAppSelector((store) => store.currentUser.currentUser);
+  const currentUser: CurrentUser | null = useAppSelector(
+    (store) => store.currentUser.currentUser
+  );
   const {
     register,
     handleSubmit,
@@ -27,17 +30,18 @@ const Step2Outcome = () => {
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     const dataWide = {
-      user_id: currentUser.user_id,
+      user_id: currentUser?.user_id ?? 0, // or -1, depending on your preference
       fname: data.fname,
       lname: data.lname,
       email: data.email,
-      role: currentUser.role,
+      role: currentUser?.role ?? "", // Provide a default value here
     };
     dispatch(addCurrentUser(dataWide));
     dispatch(addUser(dataWide));
     reset();
     navigate(paths.STEP_1_OUTRO);
   };
+
   return (
     <div className={styles["step-2-outro-container"]}>
       <div className={styles["step-2-roadmap-container"]}>
