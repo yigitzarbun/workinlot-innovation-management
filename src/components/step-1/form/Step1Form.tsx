@@ -99,6 +99,7 @@ const Step1Form: React.FC = () => {
                   control={control}
                   name={q.short_name as keyof FormData}
                   rules={{ required: i18n.t("formFieldMissingMessage") }}
+                  defaultValue={q.question_type === "multiple" ? [] : ""}
                   render={({ field }) => (
                     <>
                       {q.options.map((o) => (
@@ -116,7 +117,7 @@ const Step1Form: React.FC = () => {
                                 ? "checkbox"
                                 : "radio"
                             }
-                            value={o}
+                            defaultValue={o}
                             checked={field.value?.includes(o)}
                             onChange={(e) => {
                               if (q.question_type === "single") {

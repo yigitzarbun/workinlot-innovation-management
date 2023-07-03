@@ -17,7 +17,6 @@ const UsersTable = () => {
     }
     return null;
   };
-  console.log(userFormData);
   return (
     <div>
       <table className={styles["table-container"]}>

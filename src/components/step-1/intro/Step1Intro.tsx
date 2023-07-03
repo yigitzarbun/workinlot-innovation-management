@@ -5,12 +5,13 @@ import i18n from "../../../common/i18n/i18n";
 import styles from "./styles.module.scss";
 
 import paths from "../../../routing/Paths";
-import { useAppDispatch } from "../../../store/hooks";
+import { useAppDispatch, useAppSelector } from "../../../store/hooks";
 import { addUser } from "../../../store/slices/usersSlice";
 import { addCurrentUser } from "../../../store/slices/currentUserSlice";
 
 const Step1Intro = () => {
   const dispatch = useAppDispatch();
+  const currentUser = useAppSelector((store) => store.currentUser.currentUser);
   const handleAddNewUser = () => {
     const anonymousUser = {
       user_id: Date.now(),
@@ -20,7 +21,9 @@ const Step1Intro = () => {
       password: "",
       role: "user",
     };
-    dispatch(addUser(anonymousUser));
+    if (!currentUser) {
+      dispatch(addUser(anonymousUser));
+    }
     dispatch(addCurrentUser(anonymousUser));
   };
   return (
