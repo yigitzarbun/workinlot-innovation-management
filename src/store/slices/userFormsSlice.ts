@@ -11,8 +11,8 @@ export type UserForm = {
   scale: string;
   sector: string[] | string;
   unit: string[] | string;
-  innovation_goals: string[] | string;
-  innovation_state: string[] | string;
+  innovation_goals: number[] | number;
+  innovation_state: number[] | number;
   success_definition: string[] | string;
   currentUserId: number | null; // Update the type to be 'number | null'
 };

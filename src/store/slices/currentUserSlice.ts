@@ -14,10 +14,10 @@ interface CurrentUser {
 }
 
 interface CurrentUserState {
-  currentUser: CurrentUser;
+  currentUser: CurrentUser | null;
 }
 
-const loadCurrentUserFromLs = (): CurrentUser => {
+const loadCurrentUserFromLs = (): CurrentUser | null => {
   const storedCurrentUser = localStorage.getItem(LsKeys.currentUser);
   if (storedCurrentUser) {
     return JSON.parse(storedCurrentUser);
